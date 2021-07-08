@@ -19,6 +19,7 @@
 	import Filter from '$lib/Filter.svelte';
 	export let error;
 	export let pokemon = [];
+	// needed view[] bc checking for filters and zero pokemon made things janky
 	let view = pokemon;
 	let filtered = [];
 	let search: string | number;
@@ -28,7 +29,7 @@
 	let sortSelection = sortBy[0];
 	let noPokemonReason = '';
 
-	// <FILTER/> functions
+	// FIXME: move these functions to <Filter/> ?
 	async function regionChange(e): Promise<void> {
 		filtered = [];
 		search = '';
